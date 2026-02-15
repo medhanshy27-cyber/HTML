@@ -1,4 +1,5 @@
-# 🌤 Weather App
+# 🌤 - 🌤️ Weather App → https://medhanshy27-cyber.github.io/HTML/Weather/
+
 
 A clean and minimal weather website built using HTML, CSS, and JavaScript.
 
@@ -15,3 +16,6 @@ A clean and minimal weather website built using HTML, CSS, and JavaScript.
 
 ## Live Demo
 Enable GitHub Pages to see it live 🚀
+🌐 Live Demo: https://medhanshy27-cyber.github.io/HTML/Weather/
+
+![Preview](preview.png)
