@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
 <div class="container">
   <h1>⏰ Clock App</h1>
 
@@ -28,8 +30,10 @@
     <div class="controls">
       <button onclick="startStopwatch()">Start</button>
       <button onclick="stopStopwatch()">Stop</button>
+      <button onclick="lapStopwatch()">Lap</button>
       <button onclick="resetStopwatch()">Reset</button>
     </div>
+    <ul id="laps"></ul>
   </div>
 
   <!-- TIMER -->
@@ -42,6 +46,10 @@
     </div>
   </div>
 </div>
+
+<audio id="alarm">
+  <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg">
+</audio>
 
 <script src="script.js"></script>
 </body>

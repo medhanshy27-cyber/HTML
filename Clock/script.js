@@ -1,19 +1,26 @@
-/* TAB SWITCHING */
+/* -------- THEME -------- */
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+
+/* -------- TABS -------- */
 function showTab(tab) {
+  localStorage.setItem("lastTab", tab);
   document.querySelectorAll(".tab").forEach(t => t.classList.add("hidden"));
   document.getElementById(tab).classList.remove("hidden");
 }
 
-/* DIGITAL CLOCK */
+showTab(localStorage.getItem("lastTab") || "clock");
+
+/* -------- CLOCK -------- */
 function updateClock() {
-  const now = new Date();
-  const time = now.toLocaleTimeString();
-  document.getElementById("digitalClock").innerText = time;
+  document.getElementById("digitalClock").innerText =
+    new Date().toLocaleTimeString();
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-/* STOPWATCH */
+/* -------- STOPWATCH -------- */
 let swTime = 0, swInterval;
 
 function startStopwatch() {
@@ -32,17 +39,24 @@ function stopStopwatch() {
 function resetStopwatch() {
   stopStopwatch();
   swTime = 0;
+  document.getElementById("laps").innerHTML = "";
   displayStopwatch();
 }
 
-function displayStopwatch() {
-  const hrs = String(Math.floor(swTime / 3600)).padStart(2, '0');
-  const mins = String(Math.floor((swTime % 3600) / 60)).padStart(2, '0');
-  const secs = String(swTime % 60).padStart(2, '0');
-  document.getElementById("stopwatchDisplay").innerText = `${hrs}:${mins}:${secs}`;
+function lapStopwatch() {
+  const li = document.createElement("li");
+  li.textContent = document.getElementById("stopwatchDisplay").innerText;
+  document.getElementById("laps").prepend(li);
 }
 
-/* TIMER */
+function displayStopwatch() {
+  const h = String(Math.floor(swTime / 3600)).padStart(2, '0');
+  const m = String(Math.floor((swTime % 3600) / 60)).padStart(2, '0');
+  const s = String(swTime % 60).padStart(2, '0');
+  document.getElementById("stopwatchDisplay").innerText = `${h}:${m}:${s}`;
+}
+
+/* -------- TIMER -------- */
 let timerInterval, remaining;
 
 function startTimer() {
@@ -52,7 +66,10 @@ function startTimer() {
   timerInterval = setInterval(() => {
     remaining--;
     updateTimer();
-    if (remaining <= 0) clearInterval(timerInterval);
+    if (remaining <= 0) {
+      clearInterval(timerInterval);
+      document.getElementById("alarm").play();
+    }
   }, 1000);
 }
 
@@ -62,7 +79,7 @@ function resetTimer() {
 }
 
 function updateTimer() {
-  const mins = String(Math.floor(remaining / 60)).padStart(2, '0');
-  const secs = String(remaining % 60).padStart(2, '0');
-  document.getElementById("timerDisplay").innerText = `${mins}:${secs}`;
+  const m = String(Math.floor(remaining / 60)).padStart(2, '0');
+  const s = String(remaining % 60).padStart(2, '0');
+  document.getElementById("timerDisplay").innerText = `${m}:${s}`;
 }

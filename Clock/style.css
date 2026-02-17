@@ -9,19 +9,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #1e1e2f, #111);
+  color: white;
 }
 
 .container {
-  background: #fff;
+  background: white;
   padding: 25px;
   border-radius: 20px;
-  width: 320px;
+  width: 330px;
   text-align: center;
   box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
-h1 {
-  margin-bottom: 15px;
+body.dark .container {
+  background: #1e1e2f;
+}
+
+.theme-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: black;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .tabs button {
@@ -54,9 +72,14 @@ input {
   padding: 8px;
   margin-top: 10px;
   border-radius: 8px;
-  border: 1px solid #ccc;
 }
 
 .hidden {
   display: none;
+}
+
+#laps {
+  max-height: 100px;
+  overflow-y: auto;
+  text-align: left;
 }

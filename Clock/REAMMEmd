@@ -1,11 +1,13 @@
-# ⏰ Clock App
+# ⏰ Clock App (Advanced)
 
-A multi-functional Clock app built using HTML, CSS, and JavaScript.
+An advanced Clock app built with HTML, CSS & JavaScript.
 
 ## Features
 - Digital Clock
-- Stopwatch
-- Countdown Timer
+- Stopwatch with laps
+- Countdown Timer with alarm
+- Dark Mode
+- Saves last selected mode
 
 ## Live Demo
 https://medhanshy27-cyber.github.io/HTML/Clock/
